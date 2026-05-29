@@ -940,6 +940,21 @@
       border-radius: 50%;
       box-sizing: border-box;
     }
+
+    /* Active card variant — for paths that are actually open right now */
+    .path-mini-active {
+      border-color: rgba(242, 172, 61, 0.35);
+      background: rgba(242, 172, 61, 0.04);
+    }
+    .path-mini-active:hover {
+      border-color: var(--yellow);
+      background: rgba(242, 172, 61, 0.10);
+    }
+    .path-tag-active::before {
+      background: var(--yellow) !important;
+      border-color: var(--yellow) !important;
+      box-shadow: 0 0 0 3px rgba(242, 172, 61, 0.18);
+    }
     .path-mini h4 {
       font-family: 'Bricolage Grotesque', sans-serif;
       font-variation-settings: 'wdth' 92;
@@ -1512,27 +1527,27 @@
 
       <!-- SECONDARY paths -->
       <div class="secondary-head">
-        <h4>Más caminos <strong>próximamente</strong>:</h4>
+        <h4>Otros caminos <strong>para entrar</strong>:</h4>
       </div>
 
       <div class="secondary-paths">
 
-        <a class="path-mini reveal" href="#empieza">
-          <span class="path-tag">Próximamente · Aplicaciones</span>
+        <a class="path-mini path-mini-active reveal" href="#tally-open=J9M6GK&tally-emoji-text=👋&tally-emoji-animation=tada&tally-auto-close=2000">
+          <span class="path-tag path-tag-active">Aplicaciones abiertas · Semillero</span>
           <h4>Aplica al Semillero</h4>
-          <p>El proceso formal de selección al programa de 12 semanas abre pronto. Suscríbete al newsletter para enterarte el día que se abren las aplicaciones.</p>
+          <p>El proceso formal de selección al programa de 12 semanas. Filtramos por valores, actitud y potencial — no por título ni experiencia previa. Toma 8 minutos.</p>
           <span class="path-arrow">
-            Avísame cuando abra
+            Aplicar ahora
             <svg width="14" height="10" viewBox="0 0 16 12" fill="none"><path d="M1 6h13m0 0L9 1m5 5l-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
         </a>
 
-        <a class="path-mini reveal reveal-delay-1" href="#empieza">
-          <span class="path-tag">Próximamente · Talento</span>
+        <a class="path-mini path-mini-active reveal reveal-delay-1" href="#tally-open=J9M6GK&tally-emoji-text=👋&tally-emoji-animation=tada&tally-auto-close=2000">
+          <span class="path-tag path-tag-active">Aplicaciones abiertas · Vacantes</span>
           <h4>Sube tu CV</h4>
-          <p>Pronto abrimos el canal para conectar tu perfil con vacantes remotas. Mientras tanto suscríbete — cada semana mandamos vacantes verificadas a tu correo.</p>
+          <p>Comparte tu perfil para conectarte con vacantes de trabajo remoto. Filtramos por valores y potencial; te avisamos cuando hay una vacante que matchee con lo que buscas.</p>
           <span class="path-arrow">
-            Recibir vacantes ya
+            Subir mi perfil
             <svg width="14" height="10" viewBox="0 0 16 12" fill="none"><path d="M1 6h13m0 0L9 1m5 5l-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </span>
         </a>
@@ -1609,6 +1624,17 @@
 
   <!-- Beehiiv subscribe form loader (preloads form context) -->
   <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="71f9d9e8-f8e4-4864-b84f-35d515bead8d" style="display:none"></script>
+
+  <!-- Tally popup loader — enables #tally-open=FORM_ID URLs to trigger form modals -->
+  <script>
+    var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};
+    if("undefined"!=typeof Tally) v();
+    else if(d.querySelector('script[src="'+w+'"]')==null){
+      var s=d.createElement("script");
+      s.src=w; s.onload=v; s.onerror=v;
+      d.body.appendChild(s);
+    }
+  </script>
 
   <script>
     // Sticky nav
