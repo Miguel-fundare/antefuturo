@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
   <!-- Primary Meta -->
-  <title>Antefuturo — Recibe vacantes de trabajo remoto en tu correo.</title>
-  <meta name="description" content="Cada semana en tu correo: vacantes de trabajo remoto verificadas, herramientas de AI aplicadas al trabajo y historias reales de transformación laboral." />
+  <title>Aplica con Antefuturo</title>
+  <meta name="description" content="Una sola aplicación abre dos caminos: el Semillero (programa de 12 semanas) o conexión directa con vacantes de trabajo remoto. Filtramos por valores, actitud y potencial." />
   <meta name="theme-color" content="#F2AC3D" />
   <meta name="color-scheme" content="light" />
-  <link rel="canonical" href="https://antefuturo.org/" />
+  <link rel="canonical" href="https://antefuturo.org/aplicar" />
 
   <!-- Favicons -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -20,9 +20,9 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Antefuturo" />
   <meta property="og:locale" content="es_ES" />
-  <meta property="og:url" content="https://antefuturo.org/" />
-  <meta property="og:title" content="Antefuturo — Recibe vacantes de trabajo remoto en tu correo." />
-  <meta property="og:description" content="Cada semana: vacantes remotas verificadas, herramientas de AI aplicadas al trabajo y historias reales de transformación." />
+  <meta property="og:url" content="https://antefuturo.org/aplicar" />
+  <meta property="og:title" content="Aplica con Antefuturo" />
+  <meta property="og:description" content="Una aplicación, dos caminos: Semillero o vacantes remotas. Filtramos por valores, actitud y potencial — no por título ni experiencia previa." />
   <meta property="og:image" content="https://antefuturo.org/og-image.png" />
   <meta property="og:image:secure_url" content="https://antefuturo.org/og-image.png" />
   <meta property="og:image:type" content="image/png" />
@@ -32,14 +32,14 @@
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Antefuturo — Recibe vacantes de trabajo remoto en tu correo." />
-  <meta name="twitter:description" content="Cada semana: vacantes remotas, herramientas de AI y historias reales de transformación." />
+  <meta name="twitter:title" content="Aplica con Antefuturo" />
+  <meta name="twitter:description" content="Una aplicación, dos caminos: Semillero o vacantes remotas. Filtramos por valores y potencial." />
   <meta name="twitter:image" content="https://antefuturo.org/og-image.png" />
-  <meta name="twitter:image:alt" content="Antefuturo — Tomando acciones en presente, creamos un futuro perfecto." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
   <style>
     :root {
       --yellow: #F2AC3D;
@@ -53,7 +53,6 @@
       --muted-on-dark: #A8A39A;
       --line: rgba(15, 15, 15, 0.14);
       --line-soft: rgba(15, 15, 15, 0.08);
-      --line-on-dark: rgba(245, 240, 230, 0.16);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -69,1501 +68,266 @@
       overflow-x: hidden;
     }
 
-    a, button {
-      -webkit-tap-highlight-color: transparent;
-      touch-action: manipulation;
-    }
+    a, button { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
     a { color: inherit; text-decoration: none; }
-    button { font-family: inherit; cursor: pointer; }
     img, svg { display: block; max-width: 100%; }
 
     .container { max-width: 1360px; margin: 0 auto; padding: 0 32px; }
+    .container-narrow { max-width: 760px; margin: 0 auto; padding: 0 32px; }
 
-    .label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .label::before {
-      content: '';
-      display: inline-block;
-      width: 24px;
-      height: 1px;
-      background: currentColor;
-      opacity: 0.6;
-    }
-
-    .mark { display: inline-block; }
-    .mark svg { display: block; }
-
-    /* —— NAV —— */
+    /* ——— NAV ——— */
     nav.top {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      padding: 22px 32px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: backdrop-filter 0.4s ease, background 0.4s ease, border-color 0.4s ease, padding 0.4s ease;
-      border-bottom: 1px solid transparent;
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(245, 240, 230, 0.85);
+      backdrop-filter: saturate(140%) blur(12px);
+      -webkit-backdrop-filter: saturate(140%) blur(12px);
+      border-bottom: 1px solid var(--line-soft);
+      padding: 18px 32px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 24px;
     }
-    nav.top.scrolled {
-      background: rgba(242, 172, 61, 0.94);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom-color: rgba(15, 15, 15, 0.08);
-      padding: 16px 32px;
+    nav.top .brand {
+      display: inline-flex; align-items: center; gap: 12px;
     }
-    nav.top .brand { display: flex; align-items: center; gap: 14px; }
-    nav.top .brand .wordmark {
-      height: 22px;
-      width: auto;
-      display: block;
+    nav.top .brand .mark svg { display: block; }
+    nav.top .brand .wordmark { height: 22px; width: auto; }
+    nav.top .back-link {
+      font-size: 14px; color: var(--muted);
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: color 0.2s ease;
     }
-    nav.top .links { display: flex; gap: 30px; align-items: center; }
-    nav.top .links a {
-      font-size: 14px;
-      letter-spacing: 0.01em;
-      position: relative;
-      padding: 6px 0;
-    }
-    nav.top .links a::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0;
-      width: 0; height: 1px;
-      background: currentColor;
-      transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    nav.top .links a:hover::after { width: 100%; }
-    nav.top .links .btn-mini {
-      padding: 10px 18px;
-      border: 1px solid var(--ink);
-      border-radius: 999px;
-      font-size: 13px;
-      transition: background 0.3s ease, color 0.3s ease;
-      background: var(--ink);
-      color: var(--yellow);
-    }
-    nav.top .links .btn-mini:hover { background: var(--ink-soft); }
-    nav.top .links .btn-mini::after { display: none; }
-    .nav-toggle { display: none; }
+    nav.top .back-link:hover { color: var(--ink); }
 
-    /* —— HERO —— */
-    .hero {
+    /* ——— HERO ——— */
+    .apply-hero {
       background: var(--yellow);
-      min-height: 100vh;
+      padding: 56px 0 64px;
       position: relative;
-      padding: 160px 0 100px;
       overflow: hidden;
-      display: flex;
-      align-items: center;
     }
-    .hero::before {
+    .apply-hero::after {
       content: '';
-      position: absolute;
-      inset: 0;
-      background-image: radial-gradient(rgba(15,15,15,0.06) 1px, transparent 1px);
-      background-size: 28px 28px;
-      opacity: 0.5;
-      pointer-events: none;
-      mask-image: radial-gradient(circle at 75% 35%, black 0%, transparent 65%);
-      -webkit-mask-image: radial-gradient(circle at 75% 35%, black 0%, transparent 65%);
-    }
-    .hero-content { position: relative; z-index: 2; width: 100%; }
-    .hero .eyebrow { animation: fadeUp 0.9s 0.1s both; }
-
-    .tagline-main {
-      font-family: 'Bricolage Grotesque', sans-serif;
-      font-variation-settings: 'wdth' 100;
-      font-weight: 500;
-      font-size: clamp(28px, 4.2vw, 64px);
-      line-height: 1.18;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      max-width: 22ch;
-      margin-top: 32px;
-      animation: fadeUp 1s 0.25s both;
-    }
-    .tagline-sub {
-      font-family: 'Bricolage Grotesque', sans-serif;
-      font-variation-settings: 'wdth' 88;
-      font-weight: 500;
-      font-size: clamp(36px, 5.4vw, 84px);
-      line-height: 1.02;
-      letter-spacing: -0.025em;
-      margin-top: 0;
-      max-width: 22ch;
-      animation: fadeUp 1.1s 0.25s both;
-      color: var(--ink);
-    }
-    .tagline-sub .light { font-weight: 300; opacity: 0.78; }
-
-    .hero-bottom {
-      display: grid;
-      grid-template-columns: 1.05fr 1fr;
-      gap: 56px;
-      align-items: end;
-      margin-top: 64px;
-      animation: fadeUp 1s 0.8s both;
-    }
-    .hero .lead {
-      max-width: 48ch;
-      font-size: 18px;
-      line-height: 1.55;
-      color: var(--ink);
-    }
-    .hero .lead strong {
-      font-weight: 600;
-    }
-
-    /* —— HERO EMAIL FORM (inline capture) —— */
-    .hero-capture {
-      max-width: 480px;
-      width: 100%;
-    }
-    .hero-capture-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      font-weight: 500;
-      color: var(--ink);
-      margin-bottom: 14px;
-      display: block;
-    }
-    .hero-form {
-      display: flex;
-      gap: 6px;
-      background: rgba(15, 15, 15, 0.04);
-      border: 1px solid rgba(15, 15, 15, 0.20);
-      border-radius: 999px;
-      padding: 5px 5px 5px 22px;
-      transition: border-color 0.3s ease, background 0.3s ease;
-      align-items: center;
-    }
-    .hero-form:focus-within {
-      border-color: var(--ink);
-      background: rgba(15, 15, 15, 0.07);
-    }
-    .hero-form input {
-      flex: 1;
-      min-width: 0;
-      background: transparent;
-      border: none;
-      outline: none;
-      color: var(--ink);
-      font-family: inherit;
-      font-size: 16px;
-      padding: 12px 0;
-    }
-    .hero-form input::placeholder {
-      color: rgba(15, 15, 15, 0.45);
-    }
-    .hero-form button {
-      background: var(--ink);
-      color: var(--cream);
-      border: none;
-      padding: 13px 22px;
-      border-radius: 999px;
-      font-family: inherit;
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.3s ease;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-    .hero-form button:hover {
-      background: var(--ink-soft);
-      transform: translateX(2px);
-    }
-    .hero-form-meta {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-top: 18px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--ink);
-      opacity: 0.7;
-    }
-    .hero-form-meta span::before {
-      content: '✓';
-      margin-right: 6px;
-      font-weight: 700;
-    }
-    .hero-form-success {
-      display: none;
-      padding: 16px 22px;
-      background: var(--ink);
-      color: var(--cream);
-      border-radius: 999px;
-      font-size: 15px;
-      font-weight: 500;
-    }
-    .hero-form-success.show {
-      display: block;
-      animation: fadeUp 0.6s both;
-    }
-
-    .deco-mark {
       position: absolute;
       right: -80px;
-      top: 14%;
-      width: min(560px, 46vw);
+      top: 50%;
+      transform: translateY(-50%);
+      width: 320px;
+      height: 200px;
+      background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 100 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpolygon points=%2240,4 50,4 36,56 26,56%22 fill=%22%230F0F0F%22 opacity=%220.15%22/%3E%3Cpolygon points=%2244,24 100,24 90,52 34,52%22 fill=%22%230F0F0F%22 opacity=%220.06%22/%3E%3C/svg%3E');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
       pointer-events: none;
-      z-index: 1;
-      will-change: transform;
-      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-      opacity: 0.85;
     }
-
-    /* —— BUTTONS —— */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 14px;
-      padding: 18px 28px;
+    .apply-hero .container { position: relative; z-index: 2; }
+    .apply-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--ink); opacity: 0.7;
+      margin-bottom: 24px;
+    }
+    .apply-tag::before {
+      content: '';
+      width: 8px; height: 8px;
       background: var(--ink);
-      color: var(--cream);
-      font-size: 14px;
-      letter-spacing: 0.04em;
-      font-weight: 500;
-      border-radius: 999px;
-      transition: background 0.3s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-      border: none;
-      --mx: 0px;
-      --my: 0px;
-      transform: translate(var(--mx), var(--my));
-      will-change: transform;
+      border-radius: 50%;
     }
-    .btn:hover { background: var(--ink-soft); }
-    .btn .arrow { transition: transform 0.3s ease; }
-    .btn:hover .arrow { transform: translateX(4px); }
-    .btn--yellow {
-      background: var(--yellow);
-      color: var(--ink);
-    }
-    .btn--yellow:hover { background: var(--yellow-soft); }
-
-    /* —— MANIFIESTO —— */
-    .manifiesto {
-      background: var(--ink);
-      color: var(--cream);
-      padding: 140px 0 160px;
-      position: relative;
-    }
-    .manifiesto .label { color: var(--yellow); }
-    .manifiesto-grid {
-      display: grid;
-      grid-template-columns: 1fr 2.2fr;
-      gap: 80px;
-      align-items: start;
-    }
-    .manifiesto-statement {
+    .apply-hero h1 {
       font-family: 'Bricolage Grotesque', sans-serif;
-      font-variation-settings: 'wdth' 90;
-      font-weight: 300;
-      font-size: clamp(28px, 4vw, 56px);
-      line-height: 1.15;
+      font-weight: 700;
+      font-size: clamp(40px, 7vw, 72px);
+      line-height: 1.02;
       letter-spacing: -0.025em;
-      max-width: 26ch;
-    }
-    .manifiesto-statement .accent { color: var(--yellow); font-weight: 500; }
-    .manifiesto-statement + .manifiesto-statement { margin-top: 32px; }
-    .manifiesto .side { padding-top: 14px; }
-    .manifiesto .side p {
-      font-family: 'Bricolage Grotesque', sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
-      color: var(--muted-on-dark);
-      max-width: 32ch;
-      margin-top: 28px;
-    }
-
-    /* —— MARQUEE —— */
-    .marquee {
-      background: var(--ink);
-      color: var(--yellow);
-      padding: 22px 0;
-      overflow: hidden;
-      position: relative;
-      border-top: 1px solid var(--line-on-dark);
-      border-bottom: 1px solid var(--line-on-dark);
-    }
-    .marquee-track {
-      display: flex;
-      gap: 60px;
-      white-space: nowrap;
-      animation: scrollLeft 34s linear infinite;
-      width: max-content;
-    }
-    .marquee-track span {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 13px;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      gap: 60px;
-    }
-    .marquee-track .diamond {
-      width: 8px; height: 8px;
-      background: var(--yellow);
-      transform: rotate(45deg);
-      flex-shrink: 0;
-    }
-
-    /* —— NUESTRO CAMINO —— */
-    .camino {
-      background: var(--cream);
-      padding: 140px 0 160px;
-      position: relative;
-    }
-    .camino-head {
-      display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 64px;
-      align-items: end;
-      margin-bottom: 80px;
-    }
-    .camino-head h2 {
-      font-family: 'Bricolage Grotesque', sans-serif;
-      font-variation-settings: 'wdth' 88;
-      font-weight: 500;
-      font-size: clamp(44px, 6.4vw, 96px);
-      line-height: 0.95;
-      letter-spacing: -0.035em;
+      color: var(--ink);
       max-width: 14ch;
+      margin-bottom: 20px;
     }
-    .camino-head h2 .yellow { color: var(--yellow-deep); }
-    .camino-head .desc {
-      font-size: 18px;
+    .apply-lead {
+      font-size: clamp(16px, 1.6vw, 19px);
       line-height: 1.55;
-      max-width: 50ch;
-      color: var(--ink);
-      opacity: 0.86;
-    }
-
-    .camino-track { position: relative; }
-    .camino-track::before {
-      content: '';
-      position: absolute;
-      left: 60px;
-      top: 90px;
-      bottom: 90px;
-      width: 1px;
-      background: linear-gradient(180deg, transparent 0%, var(--line) 6%, var(--line) 94%, transparent 100%);
-      z-index: 0;
-    }
-
-    .etapa {
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 64px;
-      padding: 56px 0;
-      border-top: 1px solid var(--line);
-      align-items: start;
-      position: relative;
-      transition: padding-left 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .etapa:last-child { border-bottom: 1px solid var(--line); }
-    .etapa:hover { padding-left: 12px; }
-
-    .etapa-visual { position: relative; padding-left: 90px; }
-    .etapa-visual::before {
-      content: '';
-      position: absolute;
-      left: 53px;
-      top: 14px;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-      background: var(--cream);
-      border: 1px solid var(--ink);
-      transition: background 0.5s ease, transform 0.5s ease, border-color 0.5s ease;
-      z-index: 2;
-    }
-    .etapa.in-view .etapa-visual::before {
-      background: var(--yellow);
-      border-color: var(--yellow-deep);
-      transform: scale(1.15);
-    }
-
-    .etapa-num {
-      font-family: 'Bricolage Grotesque', sans-serif;
-      font-variation-settings: 'wdth' 90;
-      font-weight: 200;
-      font-size: clamp(80px, 9vw, 132px);
-      line-height: 0.85;
-      letter-spacing: -0.05em;
-      -webkit-text-stroke: 1px var(--ink);
-      color: transparent;
-      transition: -webkit-text-stroke-color 0.6s ease, color 0.6s ease;
-      user-select: none;
-    }
-    .etapa:hover .etapa-num,
-    .etapa.in-view .etapa-num {
-      color: var(--ink);
-      -webkit-text-stroke-color: var(--ink);
-    }
-
-    .etapa-mark {
-      margin-top: 20px;
-      width: 100px;
-      height: auto;
-      transition: transform 0.6s ease;
-    }
-    .etapa:hover .etapa-mark { transform: scale(1.05); }
-    .etapa-mark .slash-clip,
-    .etapa-mark .trap-clip {
-      transition: transform 1.1s cubic-bezier(0.65, 0, 0.35, 1);
-      transform-origin: 0 0;
-    }
-    .etapa-mark .slash-clip { transform: scaleY(0); }
-    .etapa-mark .trap-clip {
-      transform: scaleX(0);
-      transition-delay: 0.7s;
-    }
-    .etapa.in-view .etapa-mark .slash-clip { transform: scaleY(1); }
-    .etapa.in-view .etapa-mark .trap-clip { transform: scaleX(1); }
-
-    .etapa-content { padding-top: 14px; }
-    .etapa h3 {
-      font-family: 'Bricolage Grotesque', sans-serif;
-      font-variation-settings: 'wdth' 90;
-      font-weight: 500;
-      font-size: clamp(32px, 4.2vw, 52px);
-      line-height: 1.02;
-      letter-spacing: -0.03em;
-      margin-bottom: 24px;
-    }
-    .etapa h3 .dot {
-      display: inline-block;
-      width: 9px; height: 9px;
-      border-radius: 50%;
-      background: var(--yellow);
-      margin-left: 6px;
-      transform: translateY(-0.55em);
-    }
-    .etapa-content p {
-      font-size: 16px;
-      line-height: 1.6;
       color: var(--ink);
       opacity: 0.85;
-      max-width: 60ch;
-    }
-    .etapa-content p + p { margin-top: 14px; }
-    .etapa .objetivo {
-      margin-top: 26px;
-      padding-top: 20px;
-      border-top: 1px dashed rgba(15,15,15,0.18);
-      display: flex;
-      gap: 16px;
-      align-items: baseline;
-    }
-    .etapa .objetivo-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--yellow-deep);
-      font-weight: 500;
-      flex-shrink: 0;
-      padding-top: 4px;
-    }
-    .etapa .objetivo-text {
-      font-size: 15px;
-      line-height: 1.55;
-      color: var(--ink);
-      opacity: 0.9;
       max-width: 56ch;
+      margin-bottom: 28px;
     }
-    .etapa-cta {
-      margin-top: 28px;
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      color: var(--ink);
-      border-bottom: 1px solid var(--ink);
-      padding-bottom: 4px;
-      transition: gap 0.3s ease;
-    }
-    .etapa-cta:hover { gap: 18px; }
-
-    /* —— VISIÓN —— */
-    .vision {
-      background: var(--yellow);
-      padding: 140px 0 160px;
-      position: relative;
-      overflow: hidden;
-    }
-    .vision::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: linear-gradient(0deg, transparent 0%, transparent calc(100% - 1px), rgba(15,15,15,0.06) calc(100% - 1px));
-      background-size: 100% 80px;
-      pointer-events: none;
-      opacity: 0.5;
-    }
-    .vision-inner {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 80px;
-      align-items: start;
-    }
-    .vision h2 {
-      font-family: 'Bricolage Grotesque', sans-serif;
-      font-variation-settings: 'wdth' 88;
-      font-weight: 500;
-      font-size: clamp(44px, 6.6vw, 104px);
-      line-height: 0.94;
-      letter-spacing: -0.03em;
-      max-width: 14ch;
-    }
-    .vision .copy {
-      font-size: 18px;
-      line-height: 1.6;
-      max-width: 42ch;
-      margin-top: 32px;
-      color: var(--ink);
-    }
-    .stats {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0;
-      border-top: 1px solid rgba(15,15,15,0.25);
-      margin-top: 8px;
-    }
-    .stat {
-      padding: 30px 0;
-      border-bottom: 1px solid rgba(15,15,15,0.25);
-      display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 24px;
-      align-items: baseline;
-    }
-    .stat .num {
-      font-family: 'Bricolage Grotesque', sans-serif;
-      font-variation-settings: 'wdth' 85;
-      font-weight: 500;
-      font-size: clamp(48px, 5.2vw, 64px);
-      line-height: 1;
-      letter-spacing: -0.04em;
-      font-feature-settings: 'tnum' 1;
-    }
-    .stat .desc {
-      font-size: 16px;
-      line-height: 1.5;
-      color: rgba(15, 15, 15, 0.86);
-    }
-    .stat-status {
-      display: block;
-      margin-top: 14px;
+    .apply-meta {
+      display: flex; flex-wrap: wrap; gap: 20px;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      font-weight: 500;
-      color: var(--ink);
+      font-size: 12px; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--ink); opacity: 0.7;
     }
-    .stat-status::before {
+    .apply-meta span {
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .apply-meta span::before {
       content: '';
-      display: inline-block;
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      margin-right: 10px;
-      vertical-align: middle;
-      position: relative;
-      top: -1px;
-    }
-    .stat-status--done::before { background: var(--ink); }
-    .stat-status--goal::before {
-      background: transparent;
-      border: 1px solid var(--ink);
-      box-sizing: border-box;
-    }
-
-    /* —— EMPIEZA AQUÍ (Newsletter primary + secondary paths) —— */
-    .empieza {
+      width: 5px; height: 5px;
       background: var(--ink);
-      color: var(--cream);
-      padding: 140px 0 160px;
-      position: relative;
-    }
-    .empieza .label { color: var(--yellow); }
-    .empieza-head {
-      max-width: 80ch;
-      margin-bottom: 64px;
-    }
-    .empieza-head h2 {
-      font-family: 'Bricolage Grotesque', sans-serif;
-      font-variation-settings: 'wdth' 88;
-      font-weight: 500;
-      font-size: clamp(44px, 6.4vw, 96px);
-      line-height: 0.95;
-      letter-spacing: -0.035em;
-      max-width: 14ch;
-      margin-top: 20px;
-      color: var(--cream);
-    }
-    .empieza-head h2 .yellow { color: var(--yellow); }
-    .empieza-head .desc {
-      margin-top: 28px;
-      font-size: 18px;
-      line-height: 1.6;
-      max-width: 56ch;
-      color: var(--muted-on-dark);
+      border-radius: 50%;
     }
 
-    /* Primary newsletter card — big and dominant */
-    .newsletter-card {
-      background: var(--yellow);
-      color: var(--ink);
+    /* ——— FORM SECTION ——— */
+    .apply-form-section {
+      padding: 64px 0 96px;
+      background: var(--cream);
+    }
+    .apply-form-card {
+      background: var(--cream-soft);
+      border: 1px solid var(--line-soft);
+      border-radius: 24px;
+      padding: 16px;
+      box-shadow: 0 8px 40px rgba(15, 15, 15, 0.04);
+    }
+    .apply-form-card iframe {
       border-radius: 12px;
-      padding: 56px 56px 48px;
-      display: grid;
-      grid-template-columns: 1.1fr 1fr;
-      gap: 64px;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      margin-bottom: 64px;
-    }
-    .newsletter-card-mark {
-      position: absolute;
-      top: 40px;
-      right: 48px;
-      width: 80px;
-      opacity: 0.9;
-    }
-    .newsletter-card .path-tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--ink);
-      margin-bottom: 28px;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .newsletter-card .path-tag::before {
-      content: '';
-      width: 8px; height: 8px;
-      background: var(--ink);
-      border-radius: 50%;
-    }
-    .newsletter-card h3 {
-      font-family: 'Bricolage Grotesque', sans-serif;
-      font-variation-settings: 'wdth' 88;
-      font-weight: 500;
-      font-size: clamp(32px, 4.6vw, 56px);
-      line-height: 1.02;
-      letter-spacing: -0.035em;
-      max-width: 16ch;
-    }
-    .newsletter-card-desc {
-      margin-top: 22px;
-      font-size: 17px;
-      line-height: 1.55;
-      max-width: 44ch;
-      opacity: 0.86;
-    }
-    .newsletter-features {
-      list-style: none;
-      margin-top: 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 11px;
-    }
-    .newsletter-features li {
-      font-size: 15px;
-      padding-left: 24px;
-      position: relative;
-      opacity: 0.92;
-    }
-    .newsletter-features li::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 9px;
-      width: 14px; height: 1px;
-      background: var(--ink);
-    }
-    .newsletter-card-form { width: 100%; }
-    .big-form {
-      display: flex;
-      gap: 6px;
-      background: rgba(15, 15, 15, 0.06);
-      border: 1px solid rgba(15, 15, 15, 0.25);
-      border-radius: 999px;
-      padding: 5px 5px 5px 22px;
-      transition: border-color 0.3s ease, background 0.3s ease;
-      align-items: center;
-    }
-    .big-form:focus-within {
-      border-color: var(--ink);
-      background: rgba(15, 15, 15, 0.10);
-    }
-    .big-form input {
-      flex: 1;
-      min-width: 0;
-      background: transparent;
-      border: none;
-      outline: none;
-      color: var(--ink);
-      font-family: inherit;
-      font-size: 16px;
-      padding: 14px 0;
-    }
-    .big-form input::placeholder {
-      color: rgba(15, 15, 15, 0.5);
-    }
-    .big-form button {
-      background: var(--ink);
-      color: var(--yellow);
-      border: none;
-      padding: 14px 24px;
-      border-radius: 999px;
-      font-family: inherit;
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.3s ease;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-    .big-form button:hover {
-      background: var(--ink-soft);
-      transform: translateX(2px);
-    }
-    .big-form-meta {
-      margin-top: 16px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--ink);
-      opacity: 0.6;
-    }
-    .big-form-success {
-      display: none;
-      padding: 18px 24px;
-      background: var(--ink);
-      color: var(--yellow);
-      border-radius: 999px;
-      font-size: 15px;
-      font-weight: 500;
-    }
-    .big-form-success.show {
+      width: 100%;
       display: block;
-      animation: fadeUp 0.6s both;
     }
-
-    /* Secondary paths header */
-    .secondary-head {
-      margin-bottom: 28px;
-      display: flex;
-      align-items: baseline;
-      gap: 16px;
-    }
-    .secondary-head h4 {
-      font-family: 'Bricolage Grotesque', sans-serif;
-      font-weight: 400;
-      font-size: 18px;
-      letter-spacing: -0.01em;
-      color: var(--muted-on-dark);
-    }
-    .secondary-head h4 strong {
-      color: var(--cream);
-      font-weight: 500;
-    }
-
-    /* Secondary path cards — small */
-    .secondary-paths {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-    .path-mini {
-      background: transparent;
-      border: 1px solid var(--line-on-dark);
-      border-radius: 8px;
-      padding: 32px 28px 28px;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), background 0.4s ease, border-color 0.4s ease;
-      min-height: 220px;
-      color: var(--cream);
-    }
-    .path-mini:hover {
-      transform: translateY(-4px);
-      background: rgba(242, 172, 61, 0.06);
-      border-color: rgba(242, 172, 61, 0.5);
-    }
-    .path-mini .path-tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.20em;
-      text-transform: uppercase;
-      color: var(--yellow);
-      margin-bottom: 24px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .path-mini .path-tag::before {
-      content: '';
-      width: 6px; height: 6px;
-      background: transparent;
-      border: 1px solid var(--yellow);
-      border-radius: 50%;
-      box-sizing: border-box;
-    }
-
-    /* Active card variant — for paths that are actually open right now */
-    .path-mini-active {
-      border-color: rgba(242, 172, 61, 0.35);
-      background: rgba(242, 172, 61, 0.04);
-    }
-    .path-mini-active:hover {
-      border-color: var(--yellow);
-      background: rgba(242, 172, 61, 0.10);
-    }
-    .path-tag-active::before {
-      background: var(--yellow) !important;
-      border-color: var(--yellow) !important;
-      box-shadow: 0 0 0 3px rgba(242, 172, 61, 0.18);
-    }
-    .path-mini h4 {
-      font-family: 'Bricolage Grotesque', sans-serif;
-      font-variation-settings: 'wdth' 92;
-      font-weight: 500;
-      font-size: 24px;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 12px;
-      color: var(--cream);
-    }
-    .path-mini p {
-      font-size: 14px;
-      line-height: 1.55;
-      color: var(--muted-on-dark);
-      flex: 1;
-    }
-    .path-mini .path-arrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 22px;
+    .apply-form-helper {
+      text-align: center;
       font-size: 13px;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      color: var(--yellow);
+      color: var(--muted);
+      margin-top: 24px;
     }
-    .path-mini .path-arrow svg { transition: transform 0.3s ease; }
-    .path-mini:hover .path-arrow svg { transform: translateX(4px); }
 
-    /* —— FOOTER —— */
+    /* ——— TRUST ROW ——— */
+    .trust-row {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid var(--line-soft);
+    }
+    .trust-row .trust-item {
+      text-align: left;
+    }
+    .trust-row .trust-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--yellow-deep);
+      margin-bottom: 8px;
+    }
+    .trust-row .trust-text {
+      font-size: 14px; line-height: 1.5;
+      color: var(--ink);
+    }
+
+    /* ——— FOOTER ——— */
     footer {
-      background: #060606;
+      background: var(--ink);
       color: var(--cream);
-      padding: 100px 0 40px;
+      padding: 64px 0 32px;
     }
     .footer-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
+      grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
       gap: 48px;
-      padding-bottom: 80px;
-      border-bottom: 1px solid var(--line-on-dark);
+      margin-bottom: 48px;
     }
+    .footer-brand .brand .mark svg { display: block; }
     .footer-brand .tagline {
-      font-family: 'Bricolage Grotesque', sans-serif;
-      font-variation-settings: 'wdth' 95;
-      font-weight: 500;
-      font-size: 15px;
-      letter-spacing: 0.10em;
-      text-transform: uppercase;
+      margin-top: 16px;
+      font-size: 14px;
       line-height: 1.5;
+      color: var(--muted-on-dark);
       max-width: 28ch;
-      margin-top: 28px;
-      color: var(--cream);
     }
     .footer-col h4 {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      font-weight: 500;
-      color: var(--muted-on-dark);
-      margin-bottom: 20px;
+      font-size: 11px; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--yellow);
+      margin-bottom: 18px;
     }
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
     .footer-col a { font-size: 15px; transition: color 0.3s ease; }
     .footer-col a:hover { color: var(--yellow); }
+
     .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       padding-top: 32px;
+      border-top: 1px solid rgba(245, 240, 230, 0.1);
+      display: flex; justify-content: space-between;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em;
       color: var(--muted-on-dark);
     }
 
-    /* —— ANIMATIONS —— */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(28px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes scrollLeft {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
-    .reveal {
-      opacity: 0;
-      transform: translateY(36px);
-      transition: opacity 1s cubic-bezier(0.22,1,0.36,1), transform 1s cubic-bezier(0.22,1,0.36,1);
-    }
-    .reveal.in { opacity: 1; transform: translateY(0); }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-
-    /* —— RESPONSIVE — tablet/large mobile (≤960px) —— */
-    @media (max-width: 960px) {
-      nav.top { padding: 18px 22px; }
-      nav.top.scrolled { padding: 14px 22px; }
-      nav.top .links { display: none; }
-      nav.top .links.open {
-        display: flex;
-        position: absolute;
-        top: 100%; left: 0; right: 0;
-        background: var(--yellow);
-        flex-direction: column;
-        padding: 24px;
-        gap: 18px;
-        border-bottom: 1px solid var(--line);
-      }
-      .nav-toggle {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        background: transparent;
-        border: none;
-        padding: 8px;
-      }
-      .nav-toggle span {
-        width: 22px;
-        height: 1.5px;
-        background: var(--ink);
-      }
-
-      .container { padding: 0 22px; }
-      .hero { padding: 130px 0 80px; }
-      .hero-bottom { grid-template-columns: 1fr; gap: 36px; margin-top: 48px; }
-      .deco-mark { width: 80vw; right: -120px; top: auto; bottom: 6%; opacity: 0.35; }
-
-      .manifiesto-grid { grid-template-columns: 1fr; gap: 32px; }
-
-      .camino-head { grid-template-columns: 1fr; gap: 24px; margin-bottom: 48px; }
-      .camino-track::before { display: none; }
-      .etapa { grid-template-columns: 1fr; gap: 28px; padding: 44px 0; }
-      .etapa-visual { padding-left: 0; display: flex; align-items: center; gap: 24px; }
-      .etapa-visual::before { display: none; }
-      .etapa-mark { margin-top: 0; width: 70px; }
-      .etapa-num { font-size: 72px; }
-      .etapa .objetivo { flex-direction: column; gap: 8px; }
-
-      .vision-inner { grid-template-columns: 1fr; gap: 48px; }
-      .stat { grid-template-columns: 110px 1fr; padding: 22px 0; }
-
-      .newsletter-card { grid-template-columns: 1fr; gap: 40px; padding: 44px 36px; }
-      .newsletter-card-mark { top: 28px; right: 32px; width: 56px; }
-      .secondary-paths { grid-template-columns: 1fr; gap: 14px; }
-      .path-mini { min-height: auto; padding: 28px 24px 24px; }
-
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-      .footer-bottom { flex-direction: column; gap: 14px; text-align: center; }
-    }
-
-    /* —— RESPONSIVE — small phones (≤540px) —— */
-    @media (max-width: 540px) {
-      .container { padding: 0 20px; }
-
-      .hero { padding: 110px 0 70px; }
-      .tagline-main { font-size: clamp(20px, 6vw, 26px); margin-top: 28px; letter-spacing: 0.06em; }
-      .tagline-sub { font-size: clamp(34px, 11vw, 56px); margin-top: 28px; }
-      .hero-bottom { margin-top: 40px; }
-      .hero .lead { font-size: 16px; }
-      .hero-form { padding: 4px 4px 4px 18px; }
-      .hero-form input { font-size: 16px; padding: 10px 0; }
-      .hero-form button { padding: 11px 16px; font-size: 13px; }
-
-      .manifiesto { padding: 100px 0 110px; }
-      .manifiesto-statement { font-size: clamp(22px, 5.5vw, 30px); }
-
-      .camino { padding: 100px 0 110px; }
-      .camino-head h2,
-      .empieza-head h2,
-      .vision h2 { font-size: clamp(34px, 9vw, 50px); }
-      .etapa { padding: 36px 0; gap: 22px; }
-      .etapa h3 { font-size: clamp(26px, 7vw, 36px); margin-bottom: 18px; }
-      .etapa-num { font-size: 56px; }
-      .etapa-mark { width: 56px; }
-      .etapa-content p { font-size: 15px; }
-
-      .empieza { padding: 100px 0 110px; }
-      .newsletter-card { padding: 36px 24px 32px; gap: 32px; }
-      .newsletter-card h3 { font-size: clamp(28px, 7.5vw, 38px); }
-      .newsletter-card-mark { width: 44px; top: 24px; right: 22px; }
-      .big-form { padding: 4px 4px 4px 18px; }
-      .big-form input { padding: 12px 0; font-size: 16px; }
-      .big-form button { padding: 12px 16px; font-size: 13px; }
-      .secondary-head { flex-direction: column; gap: 4px; align-items: flex-start; }
-
-      .vision { padding: 100px 0 110px; }
-      .stat { grid-template-columns: 80px 1fr; padding: 18px 0; gap: 16px; }
-      .stat .num { font-size: clamp(36px, 11vw, 48px); }
-      .stat .desc { font-size: 14px; }
-
-      footer { padding: 80px 0 32px; }
-      .footer-grid { padding-bottom: 56px; }
-      nav.top .links a { padding: 12px 0; font-size: 15px; }
-      .marquee { padding: 18px 0; }
-      .marquee-track span { font-size: 12px; letter-spacing: 0.22em; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
-      .marquee-track { animation: none !important; }
-      .etapa-mark .slash-clip,
-      .etapa-mark .trap-clip { transform: none !important; }
+    /* ——— MOBILE ——— */
+    @media (max-width: 768px) {
+      nav.top { padding: 14px 20px; }
+      nav.top .back-link span { display: none; }
+      .container, .container-narrow { padding: 0 20px; }
+      .apply-hero { padding: 40px 0 48px; }
+      .apply-hero::after { display: none; }
+      .apply-hero h1 { font-size: clamp(32px, 9vw, 48px); }
+      .apply-meta { gap: 12px; font-size: 11px; }
+      .apply-form-section { padding: 40px 0 60px; }
+      .apply-form-card { padding: 12px; border-radius: 16px; }
+      .trust-row { grid-template-columns: 1fr; gap: 16px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
     }
   </style>
 </head>
 <body>
 
   <!-- ——— NAV ——— -->
-  <nav class="top" id="topnav">
-    <a href="#" class="brand" aria-label="Antefuturo">
+  <nav class="top">
+    <a href="/" class="brand" aria-label="Antefuturo">
       <span class="mark" aria-hidden="true">
         <svg width="36" height="22" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
           <polygon points="40,4 50,4 36,56 26,56" fill="#0F0F0F"/>
           <polygon points="44,24 100,24 90,52 34,52" fill="#0F0F0F" opacity="0.18"/>
         </svg>
       </span>
-      <img src="data:image/png;base64,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" alt="Antefuturo" class="wordmark" />
+      <img src="data:image/png;base64,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" alt="Antefuturo" class="wordmark" />
     </a>
-    <div class="links" id="navlinks">
-      <a href="#manifiesto">Manifiesto</a>
-      <a href="#camino">Camino</a>
-      <a href="#vision">Visión</a>
-      <a href="#empieza" class="btn-mini">Suscribirme</a>
-    </div>
-    <button class="nav-toggle" aria-label="Abrir menú" id="navToggle">
-      <span></span><span></span><span></span>
-    </button>
+    <a href="/" class="back-link">
+      ← <span>Volver al inicio</span>
+    </a>
   </nav>
 
   <!-- ——— HERO ——— -->
-  <section class="hero">
-    <div class="deco-mark" id="heroDeco" aria-hidden="true">
-      <svg viewBox="0 0 600 280" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <clipPath id="heroSlashClip">
-            <rect x="195" y="0" width="80" height="0">
-              <animate attributeName="height" from="0" to="280" dur="1.1s" begin="0.5s" fill="freeze" calcMode="spline" keySplines="0.65 0 0.35 1"/>
-            </rect>
-          </clipPath>
-          <clipPath id="heroTrapClip">
-            <rect x="225" y="100" width="0" height="160">
-              <animate attributeName="width" from="0" to="380" dur="1.3s" begin="1.4s" fill="freeze" calcMode="spline" keySplines="0.65 0 0.35 1"/>
-            </rect>
-          </clipPath>
-        </defs>
-        <polygon points="240,12 270,12 230,268 200,268" fill="#0F0F0F" clip-path="url(#heroSlashClip)"/>
-        <polygon points="258,110 590,110 558,248 226,248" fill="#0F0F0F" opacity="0.10" clip-path="url(#heroTrapClip)"/>
-      </svg>
-    </div>
-
+  <section class="apply-hero">
     <div class="container">
-      <div class="hero-content">
-        <h1 class="tagline-sub">
-          Tomando acciones en presente,<br/>
-          <span class="light">creamos un futuro perfecto.</span>
-        </h1>
-
-        <div class="hero-bottom">
-          <p class="lead">
-            Recibe en tu correo cada semana <strong>vacantes de trabajo remoto verificadas</strong>, herramientas de AI aplicadas al trabajo, y historias reales de transformación laboral.
-          </p>
-          <div class="hero-capture">
-            <span class="hero-capture-label">Suscríbete · Es gratis</span>
-            <form class="hero-form" id="heroForm"
-                  action="https://subscribe-forms.beehiiv.com/71f9d9e8-f8e4-4864-b84f-35d515bead8d/subscribe"
-                  method="POST"
-                  target="beehiivSink"
-                  novalidate>
-              <input type="email" name="email" placeholder="tu@correo.com" required aria-label="Tu correo electrónico" />
-              <button type="submit">Suscribirme →</button>
-            </form>
-            <div class="hero-form-meta" id="heroMeta">
-              <span>Vacantes remotas</span>
-              <span>AI</span>
-              <span>Cada semana</span>
-            </div>
-            <div class="hero-form-success" id="heroSuccess">¡Listo! Te vemos el próximo lunes en tu bandeja.</div>
-          </div>
-        </div>
+      <span class="apply-tag">Aplicaciones abiertas</span>
+      <h1>Aplica con<br/>Antefuturo.</h1>
+      <p class="apply-lead">
+        Una sola aplicación abre <strong>dos caminos posibles</strong>. Filtramos por valores, actitud y potencial — no por título ni experiencia previa. Según tu perfil, te invitamos al <strong>Semillero</strong> (programa de 12 semanas) o te conectamos directo con <strong>vacantes de trabajo remoto</strong>. Toma 8 minutos.
+      </p>
+      <div class="apply-meta">
+        <span>Semillero o vacantes remotas</span>
+        <span>100% online</span>
+        <span>Sin costo para candidatos</span>
       </div>
     </div>
   </section>
 
-  <!-- ——— MANIFIESTO ——— -->
-  <section class="manifiesto" id="manifiesto">
-    <div class="container">
-      <div class="manifiesto-grid">
-        <div class="side">
-          <span class="label">01 — Manifiesto</span>
-          <p>
-            Una creencia simple, sostenida por años de trabajo con personas reales que decidieron moverse.
-          </p>
-        </div>
-        <div>
-          <p class="manifiesto-statement reveal">
-            Creemos que muchas personas tienen <span class="accent">talento, ganas y capacidad</span>, pero no siempre tienen acceso a las herramientas, la formación, las redes o las oportunidades correctas.
-          </p>
-          <p class="manifiesto-statement reveal reveal-delay-1">
-            Antefuturo existe para <span class="accent">cerrar esa brecha</span>. Cuando una persona transforma su trabajo, transforma a su familia y a su comunidad.
-          </p>
-        </div>
+  <!-- ——— FORM ——— -->
+  <section class="apply-form-section">
+    <div class="container-narrow">
+      <div class="apply-form-card">
+        <iframe data-tally-src="https://tally.so/embed/J9M6GK?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="409" frameborder="0" marginheight="0" marginwidth="0" title="Aplica con ANTEFUTURO 🚀"></iframe>
       </div>
-    </div>
-  </section>
+      <p class="apply-form-helper">Tu información es confidencial. Solo nosotros la vemos.</p>
 
-  <!-- ——— MARQUEE ——— -->
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span>Tomando acciones en presente</span><span class="diamond"></span>
-      <span>Creamos un futuro perfecto</span><span class="diamond"></span>
-      <span>Vacantes remotas</span><span class="diamond"></span>
-      <span>Cada semana</span><span class="diamond"></span>
-      <span>Tomando acciones en presente</span><span class="diamond"></span>
-      <span>Creamos un futuro perfecto</span><span class="diamond"></span>
-      <span>Vacantes remotas</span><span class="diamond"></span>
-      <span>Cada semana</span><span class="diamond"></span>
-    </div>
-  </div>
-
-  <!-- ——— NUESTRO CAMINO ——— -->
-  <section class="camino" id="camino">
-    <div class="container">
-      <div class="camino-head">
-        <div>
-          <span class="label">02 — Nuestro camino</span>
-          <h2 class="reveal" style="margin-top: 20px;">
-            El camino que <span class="yellow">recorremos contigo</span>.
-          </h2>
+      <div class="trust-row">
+        <div class="trust-item">
+          <div class="trust-num">01 · Aplicación</div>
+          <div class="trust-text">Llenas este form. Te toma 8 minutos.</div>
         </div>
-        <p class="desc reveal reveal-delay-1">
-          Cinco etapas. De la curiosidad al primer trabajo que cambia tu vida — y más allá, al regreso a la comunidad. No prometemos resultados sin esfuerzo: acompañamos un proceso real, paso por paso.
-        </p>
-      </div>
-
-      <div class="camino-track">
-
-        <!-- 01 — COMUNIDAD -->
-        <article class="etapa reveal" data-etapa="01">
-          <div class="etapa-visual">
-            <div class="etapa-num">01</div>
-            <svg class="etapa-mark" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
-              <g class="slash-clip">
-                <polygon points="40,4 50,4 36,56 26,56" fill="#0F0F0F"/>
-              </g>
-              <g class="trap-clip">
-                <polygon points="44,24 100,24 90,52 34,52" fill="none" stroke="#0F0F0F" stroke-width="1" stroke-dasharray="2,3" opacity="0.5"/>
-              </g>
-            </svg>
-          </div>
-          <div class="etapa-content">
-            <h3>Comunidad<span class="dot"></span></h3>
-            <p>Aquí empieza todo. Una comunidad abierta para personas que quieren mejorar su futuro laboral, aprender nuevas habilidades y prepararse para oportunidades de trabajo flexible, remoto o mejor pagado.</p>
-            <p>En esta etapa ofrecemos vacantes, charlas, artículos, workshops, videos y free training sobre AI, trabajo remoto, habilidades digitales y futuro del trabajo. Cualquiera puede entrar — sin filtros.</p>
-            <div class="objetivo">
-              <span class="objetivo-label">Mensaje clave</span>
-              <span class="objetivo-text">La Comunidad abre la puerta.</span>
-            </div>
-            <a href="#empieza" class="etapa-cta">
-              Recibir vacantes en mi correo
-              <svg width="14" height="10" viewBox="0 0 16 12" fill="none"><path d="M1 6h13m0 0L9 1m5 5l-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
-        </article>
-
-        <!-- 02 — SEMILLERO -->
-        <article class="etapa reveal" data-etapa="02">
-          <div class="etapa-visual">
-            <div class="etapa-num">02</div>
-            <svg class="etapa-mark" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
-              <g class="slash-clip">
-                <polygon points="40,4 50,4 36,56 26,56" fill="#0F0F0F"/>
-              </g>
-              <g class="trap-clip">
-                <polygon points="44,24 100,24 90,52 34,52" fill="none" stroke="#0F0F0F" stroke-width="1.5"/>
-              </g>
-            </svg>
-          </div>
-          <div class="etapa-content">
-            <h3>Semillero<span class="dot"></span></h3>
-            <p>El Semillero es el proceso donde Antefuturo identifica a las personas con mayor potencial para iniciar el camino formal de transformación. No es todavía la capacitación profunda — es observación, filtro y preselección.</p>
-            <p>Aquí buscamos quién tiene los valores, la actitud, el compromiso y la disposición para aprovechar una oportunidad real. No buscamos personas perfectas: buscamos personas con potencial y ganas de aprender.</p>
-            <div class="objetivo">
-              <span class="objetivo-label">Mensaje clave</span>
-              <span class="objetivo-text">El Semillero identifica el potencial.</span>
-            </div>
-            <a href="#empieza" class="etapa-cta">
-              Aplica al Semillero
-              <svg width="14" height="10" viewBox="0 0 16 12" fill="none"><path d="M1 6h13m0 0L9 1m5 5l-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
-        </article>
-
-        <!-- 03 — CLASE -->
-        <article class="etapa reveal" data-etapa="03">
-          <div class="etapa-visual">
-            <div class="etapa-num">03</div>
-            <svg class="etapa-mark" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
-              <g class="slash-clip">
-                <polygon points="40,4 50,4 36,56 26,56" fill="#0F0F0F"/>
-              </g>
-              <g class="trap-clip">
-                <polygon points="44,24 100,24 90,52 34,52" fill="#F2AC3D" opacity="0.55"/>
-                <polygon points="44,24 100,24 90,52 34,52" fill="none" stroke="#0F0F0F" stroke-width="1"/>
-              </g>
-            </svg>
-          </div>
-          <div class="etapa-content">
-            <h3>Classe<span class="dot"></span></h3>
-            <p>El programa formal de capacitación de 12 semanas. Aquí las personas seleccionadas desde el Semillero entran a un proceso estructurado que convierte su potencial en capacidades reales y aplicables al mundo laboral.</p>
-            <p>Enfoque en AI aplicada al trabajo, trabajo remoto, comunicación profesional, cultura laboral, herramientas digitales, productividad y preparación para entrevistas.</p>
-            <div class="objetivo">
-              <span class="objetivo-label">Mensaje clave</span>
-              <span class="objetivo-text">Classe desarrolla las capacidades.</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- 04 — PLACEMENT -->
-        <article class="etapa reveal" data-etapa="04">
-          <div class="etapa-visual">
-            <div class="etapa-num">04</div>
-            <svg class="etapa-mark" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
-              <g class="slash-clip">
-                <polygon points="40,4 50,4 36,56 26,56" fill="#0F0F0F"/>
-              </g>
-              <g class="trap-clip">
-                <polygon points="44,24 100,24 90,52 34,52" fill="#F2AC3D"/>
-              </g>
-            </svg>
-          </div>
-          <div class="etapa-content">
-            <h3>Placement<span class="dot"></span></h3>
-            <p>Un proyecto de 3 meses en una empresa aliada. No se trata solo de aprender, sino de aplicar lo aprendido, generar valor y demostrar que la persona puede integrarse a un equipo profesional.</p>
-            <p>Proyecto real, objetivos definidos, mentoría durante el proceso, evaluación de desempeño, feedback de la empresa y posibilidad de contratación o extensión.</p>
-            <div class="objetivo">
-              <span class="objetivo-label">Mensaje clave</span>
-              <span class="objetivo-text">El Placement demuestra el talento.</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- 05 — ALUMNI -->
-        <article class="etapa reveal" data-etapa="05">
-          <div class="etapa-visual">
-            <div class="etapa-num">05</div>
-            <svg class="etapa-mark" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
-              <g class="slash-clip">
-                <g transform="translate(0,20) scale(0.32)">
-                  <polygon points="40,4 50,4 36,56 26,56" fill="#0F0F0F"/>
-                </g>
-                <g transform="translate(34,20) scale(0.32)">
-                  <polygon points="40,4 50,4 36,56 26,56" fill="#0F0F0F"/>
-                </g>
-                <g transform="translate(68,20) scale(0.32)">
-                  <polygon points="40,4 50,4 36,56 26,56" fill="#0F0F0F"/>
-                </g>
-              </g>
-              <g class="trap-clip">
-                <g transform="translate(0,20) scale(0.32)">
-                  <polygon points="44,24 100,24 90,52 34,52" fill="#F2AC3D"/>
-                </g>
-                <g transform="translate(34,20) scale(0.32)">
-                  <polygon points="44,24 100,24 90,52 34,52" fill="#F2AC3D"/>
-                </g>
-                <g transform="translate(68,20) scale(0.32)">
-                  <polygon points="44,24 100,24 90,52 34,52" fill="#F2AC3D"/>
-                </g>
-              </g>
-            </svg>
-          </div>
-          <div class="etapa-content">
-            <h3>Alumni<span class="dot"></span></h3>
-            <p>Las personas que completaron el proceso Antefuturo y ya están trabajando. Esta etapa convierte a los graduados en parte activa del ecosistema: mentores, speakers, embajadores y referentes para nuevas generaciones.</p>
-            <p>Una red viva de personas que ya transformaron su futuro laboral y ahora pueden ayudar a transformar el futuro de otros. Una persona transformada multiplica a muchas más.</p>
-            <div class="objetivo">
-              <span class="objetivo-label">Mensaje clave</span>
-              <span class="objetivo-text">Alumni multiplica el impacto.</span>
-            </div>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ——— VISIÓN ——— -->
-  <section class="vision" id="vision">
-    <div class="container">
-      <div class="vision-inner">
-        <div>
-          <span class="label">03 — Hacia dónde vamos</span>
-          <h2 class="reveal" style="margin-top: 20px;">Empezando con los primeros.</h2>
-          <p class="copy reveal reveal-delay-1">
-            Cada gran comunidad empezó con una persona decidida a moverse. Cada número aquí es una vida cambiada — y son posibles porque cada persona que entra al camino lo hace real.
-          </p>
+        <div class="trust-item">
+          <div class="trust-num">02 · Revisión</div>
+          <div class="trust-text">Revisamos en menos de 7 días. Si pasas el filtro, agendamos una llamada de 30 min.</div>
         </div>
-        <div class="stats reveal">
-          <div class="stat">
-            <span class="num js-counter" data-target="110">0</span>
-            <span class="desc">
-              Personas colocadas en empresas.
-              <span class="stat-status stat-status--done">Logrado</span>
-            </span>
-          </div>
-          <div class="stat">
-            <span class="num js-counter" data-target="5000">0</span>
-            <span class="desc">
-              Miembros activos en comunidad.
-              <span class="stat-status stat-status--goal">Meta · 2027</span>
-            </span>
-          </div>
-          <div class="stat">
-            <span class="num js-counter" data-target="10000">0</span>
-            <span class="desc">
-              Vidas laborales transformadas.
-              <span class="stat-status stat-status--goal">Meta · 2030</span>
-            </span>
-          </div>
+        <div class="trust-item">
+          <div class="trust-num">03 · Conexión</div>
+          <div class="trust-text">Según tu momento y perfil, entras al Semillero o al pipeline de vacantes remotas.</div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ——— EMPIEZA AQUÍ (newsletter primary + secondary paths) ——— -->
-  <section class="empieza" id="empieza">
-    <div class="container">
-
-      <div class="empieza-head">
-        <span class="label">04 — Empieza aquí</span>
-        <h2 class="reveal">Da el <span class="yellow">siguiente paso</span>.</h2>
-        <p class="desc reveal reveal-delay-1">
-          La forma más simple de empezar: recibe nuestras cartas semanales. Si quieres ir más profundo, también hay caminos para eso.
-        </p>
-      </div>
-
-      <!-- PRIMARY: Newsletter card -->
-      <article class="newsletter-card reveal">
-        <svg class="newsletter-card-mark" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="40,4 50,4 36,56 26,56" fill="#0F0F0F"/>
-          <polygon points="44,24 100,24 90,52 34,52" fill="#0F0F0F" opacity="0.18"/>
-        </svg>
-        <div>
-          <span class="path-tag">Newsletter · Gratis</span>
-          <h3>Recibe vacantes de trabajo remoto en tu correo.</h3>
-          <p class="newsletter-card-desc">Cada semana, lo que vale la pena: oportunidades remotas verificadas, herramientas de AI que sí mueven la aguja, y historias reales de gente que cambió su vida laboral.</p>
-          <ul class="newsletter-features">
-            <li>Vacantes remotas verificadas, no spam</li>
-            <li>Herramientas de AI aplicadas al trabajo</li>
-            <li>Historias reales de transformación</li>
-            <li>Una sola vez por semana — los lunes</li>
-          </ul>
-        </div>
-        <div class="newsletter-card-form">
-          <form class="big-form" id="bigForm"
-                action="https://subscribe-forms.beehiiv.com/71f9d9e8-f8e4-4864-b84f-35d515bead8d/subscribe"
-                method="POST"
-                target="beehiivSink"
-                novalidate>
-            <input type="email" name="email" placeholder="tu@correo.com" required aria-label="Tu correo electrónico" />
-            <button type="submit">Suscribirme →</button>
-          </form>
-          <p class="big-form-meta" id="bigMeta">Cancela cuando quieras · Cero spam</p>
-          <div class="big-form-success" id="bigSuccess">¡Listo! Te vemos el próximo lunes en tu bandeja.</div>
-        </div>
-      </article>
-
-      <!-- SECONDARY paths -->
-      <div class="secondary-head">
-        <h4>Otros caminos <strong>para entrar</strong>:</h4>
-      </div>
-
-      <div class="secondary-paths">
-
-        <a class="path-mini path-mini-active reveal" href="aplicar.html">
-          <span class="path-tag path-tag-active">Aplicaciones abiertas · Semillero</span>
-          <h4>Aplica al Semillero</h4>
-          <p>El proceso formal de selección al programa de 12 semanas. Filtramos por valores, actitud y potencial — no por título ni experiencia previa. Toma 8 minutos.</p>
-          <span class="path-arrow">
-            Aplicar ahora
-            <svg width="14" height="10" viewBox="0 0 16 12" fill="none"><path d="M1 6h13m0 0L9 1m5 5l-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </a>
-
-        <a class="path-mini path-mini-active reveal reveal-delay-1" href="aplicar.html">
-          <span class="path-tag path-tag-active">Aplicaciones abiertas · Vacantes</span>
-          <h4>Sube tu CV</h4>
-          <p>Comparte tu perfil para conectarte con vacantes de trabajo remoto. Filtramos por valores y potencial; te avisamos cuando hay una vacante que matchee con lo que buscas.</p>
-          <span class="path-arrow">
-            Subir mi perfil
-            <svg width="14" height="10" viewBox="0 0 16 12" fill="none"><path d="M1 6h13m0 0L9 1m5 5l-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </a>
-
-        <a class="path-mini reveal reveal-delay-2" href="#empieza">
-          <span class="path-tag">Próximamente · Empresas</span>
-          <h4>Para empresas</h4>
-          <p>Pronto tendremos un canal directo para empresas que buscan talento AI-ready. Por ahora suscríbete al newsletter para ver el talento que estamos formando.</p>
-          <span class="path-arrow">
-            Suscribirme
-            <svg width="14" height="10" viewBox="0 0 16 12" fill="none"><path d="M1 6h13m0 0L9 1m5 5l-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </a>
-
-      </div>
-
     </div>
   </section>
 
@@ -1572,24 +336,24 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="#" class="brand" style="display: inline-flex; align-items: center; gap: 12px;">
+          <a href="/" class="brand" style="display: inline-flex; align-items: center; gap: 12px;">
             <span class="mark">
               <svg width="32" height="20" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
                 <polygon points="40,4 50,4 36,56 26,56" fill="#F2AC3D"/>
                 <polygon points="44,24 100,24 90,52 34,52" fill="#F2AC3D" opacity="0.30"/>
               </svg>
             </span>
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATIAAAAlCAYAAADBYmVSAAAHhElEQVR42u2deWxVRRTGf4VWdsIqZbcSVERFXEiaoBHiihghasAYcA0gLgEThZBoXBBcEoSEpWqiLIr7igYSFGOohgTEBUFUUBYLyFILtKAU+vzjzQvTy73v3WVm2tLzJS+dO3dmzty5Z745Z2buNK+qYhcCgUDQkNFEmkAgEAiRCQQCgRCZQCAQCJEJBAIhMoFAIBAiEwgEAiEygUAgSIJ8A2W0B94AbrRYz/eA2yLmmQ0cAp5IKLs5sBjoBmwCOgO/AFcALYCvVTv2Ven3AeOA/xLKfQkoA7YD/YEuQJEq9yBQDXQCRgH/GmjjFcBmoCXQW7VdWyAFHAA6AjuAL4B3E8oaD5So8LXAyixp7waGALvUO92TQO4Q4GFgN7BRtWehutcXyAP+Atartm8HrAbWJZA5EbgO2As0A8ZmSTsKuFz1qTIDugtwL3A9sBU4V7XfMaCX0uPDwOfATw74ZgTwUcC9ecCDcQvOM7AhNpUpy2IDpIAK9YKj1msSMCeB7IXAnRHzvKYUKC6GAl+GTPsk8FTC9u2gyCq03iSU9z5wiwrPBR4K8R4BpgOPG9DVyP0kgczjQNOQZaUMt3PUZy4CtlnovwuACTbb26RrOQG7aKeshqgoTyj37xh51ieUuSpC2pYG2va4Y09grxbeU4/raQJNG1Bd/zRcXgtFpFG5IaW8Ameu5QYP65ZYbOAiZaKPAZY4fDlT1M87YtRYtET7GR6Vc6HScz1aKWErNRAcBc5TRLLc0HREBgWWBxUd09SAuF09cxPgdZ80ZUBPlaYhEZEp78eUzh1JkHcbMBj4xgWRXeCocYu08GI1j/FVyLxnAaUWXnYGrYAqw+Ufcay8LTzX71iWtz+mxZLUIpvpE9dduawo93rmaU5UBT7t6HU/55JgviqhG6+jNCypJnEt19VhB1ylRsww6G1B/vlauMpC+dsdK3dzx/KOe6YMwuKEhbrkBxDs6Qq/wWCk5/qBhDJyze/2VwSVBxQD30fkGaNEdqnmug0IGNlNocInbkfIvIcs1GfTaabcri1AnTB+jJDPxnYhfaDrROPEx4bLGxoQv0WRl95/1gCXAM/n4BkrivGWFj6b2ku3NkY1fdTOi2i+HkWQC9WO5XWOaZEVWqiLvhjUvpG+/wUGpxb6BMR/wMktSn6YSvCiwAxbRDZa/f1di8tMmnZ00PCTIpBZfgNUrELH8lyvBh7Twm0j5LOx8NHMssVX3zCZk1MjQauKzyQoP2gr0K0h8r4cEH+TDSJ7Vgufo4Xv0cJbLb2EzBzJHGCnFr8hS542FurRyrKy1XiIOttvlAF53jmyXDKTIhVAJLlgYwWxOY0Ls0hvBk5lmVLYmKD8O3zi/omQ3y9tzkXFOEQ2Lcu9Ms3dtAFdkXt5HvT2gDz7LdfDBqJYkSMMu3oucEY9cv1rZGbButUbxWX/zHaHARjuub5PWUnV6tddu7cSuMZBo2dG96WkP7XwTu7vsyDX9uS493OLAz4u+wlFqK8YkOfapWoSc7S2MYAcFu4CYC0wqB7Uw+9TxErTRLbMc/1qlrRXG3y4atL7X2pykNlBnxGlOC7LOx61dHR0KCtDlDiWmUGUlW4b1lNDnEOtz1bYr6S/6TTp6q82ORL3i1Gp8YYapyDCi/DO4Vxo4cW3tKxYBx0rsuvtF/riQtc6thzbNTLS8tvo+oLB8ocFxC8KkXd+QPx0k4qxyUMc2X4ZlFjsAF4MDCCz3ZZdIxs44Vi5XbuW+vvpUsfWUwGNC/N8LLBHMbf15I+A+LHAh1nyXQncH3DvWxsKPCZEmmItPNjgS8g2cf8D/qdc2Ph/d7a3R+Q5Vu4+juXpc11RVl1trED3dDyAPBcQP9xR22eI2/vZXjnpI4RMYFlA/Eg1iF3kee4U6eOwiONWQvhjfDZrfm/YTpYy2DFTGtvn6nQLqX3szlL8l4RNWRU2SCefk5tUXZBaocdytS1zvMda3036vDe/wWmA5Xq9rZFppQWyvJlTd853oPYix5mc+kH8FrJvII1j/XrbcAenfuqXZ7h/OBnUw1pkGRKLcvLBZVp4sqGHCrOt4y7P9XILyj/QckfXt0O0dkBkrrcgeDc+dlWKP05dTwR+9pCYLej72Gx84fCJT1w5tffl+Z3q0dfBs/eySECtLdUvNpHp3zQOi1CJ77TwLMcdRWdxGxPzv1muv24dHSb75tRHDMgrt+yK++GGAIJLkZ7H6e+5V2SpHm0cPHtxxPSzHfYVv+9Lpxoot8rjQsbpwztNElnG9DwWozKPeczpuiCzKZaJsq4xyHAZ3RzVewXhT1mYjZ2TS6H2YkNvSzLWEP5YnLUGPZgwOED62HYdM4GnDZS9QfWVsgh5yrBwQuzF6u9ewh+bo+NFj+LGReaYj0UR811FiKXbGKh0qGgVOe4vMiBDXxUqdfhs85XSBp2I+6m6b7Njz1CduYL06p0tZFYLl2TRqTzMb0p9M0SaUk7OWWZ0u7vBOvRQz5bt/xWUqDQ9YlkWBs7sFwgEgjqF/Ds4gUAgRCYQCARCZAKBQCBEJhAIhMgEAoFAiEwgEAiEyAQCgSAR/gdIgmw4lP9AfgAAAABJRU5ErkJggg==" alt="Antefuturo" style="height: 20px; width: auto;" />
+            <img src="data:image/png;base64,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" alt="Antefuturo" style="height: 20px; width: auto;" />
           </a>
           <p class="tagline">Tomando acciones en presente, creamos un futuro perfecto.</p>
         </div>
         <div class="footer-col">
           <h4>Explora</h4>
           <ul>
-            <li><a href="#manifiesto">Manifiesto</a></li>
-            <li><a href="#camino">Camino</a></li>
-            <li><a href="#vision">Visión</a></li>
-            <li><a href="#empieza">Suscribirme</a></li>
+            <li><a href="/#manifiesto">Manifiesto</a></li>
+            <li><a href="/#camino">Camino</a></li>
+            <li><a href="/#vision">Visión</a></li>
+            <li><a href="/#empieza">Suscribirme</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -1598,7 +362,7 @@
             <li><a href="#">Instagram</a></li>
             <li><a href="#">LinkedIn</a></li>
             <li><a href="#">YouTube</a></li>
-            <li><a href="#">WhatsApp</a></li>
+            <li><a href="https://wa.me/15127758157" target="_blank" rel="noopener">WhatsApp</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -1617,144 +381,15 @@
     </div>
   </footer>
 
-  <!-- Hidden iframe for Beehiiv form submissions (avoids CORS issues) -->
-  <iframe name="beehiivSink" id="beehiivSink"
-          style="position:absolute;width:0;height:0;border:0;visibility:hidden;left:-9999px;top:-9999px;"
-          tabindex="-1" aria-hidden="true"></iframe>
-
-  <!-- Beehiiv subscribe form loader (preloads form context) -->
-  <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="71f9d9e8-f8e4-4864-b84f-35d515bead8d" style="display:none"></script>
-
+  <!-- Tally embed loader -->
   <script>
-    // Sticky nav
-    const nav = document.getElementById('topnav');
-    const onScroll = () => {
-      if (window.scrollY > 40) nav.classList.add('scrolled');
-      else nav.classList.remove('scrolled');
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-
-    // Mobile nav toggle
-    const toggle = document.getElementById('navToggle');
-    const links = document.getElementById('navlinks');
-    toggle.addEventListener('click', () => links.classList.toggle('open'));
-    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
-
-    // Reveal animations
-    const revealObs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('in');
-          revealObs.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
-
-    // Etapas in-view animation
-    const etapaObs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add('in-view');
-      });
-    }, { threshold: 0.35, rootMargin: '0px 0px -80px 0px' });
-    document.querySelectorAll('.etapa').forEach(el => etapaObs.observe(el));
-
-    // Counter animation
-    const easeOut = (t) => 1 - Math.pow(1 - t, 3);
-    function animateCounter(el) {
-      const target = parseInt(el.dataset.target, 10);
-      const suffix = el.dataset.suffix || '';
-      const duration = 1800;
-      const start = performance.now();
-      const isThousand = target >= 1000;
-      function format(n) {
-        if (isThousand && n >= 1000) {
-          if (target >= 10000) return Math.round(n / 1000) + 'K' + suffix;
-          return n.toLocaleString('en-US') + suffix;
-        }
-        return n + suffix;
-      }
-      function tick(now) {
-        const p = Math.min((now - start) / duration, 1);
-        const val = Math.floor(target * easeOut(p));
-        el.textContent = format(val);
-        if (p < 1) requestAnimationFrame(tick);
-        else el.textContent = format(target);
-      }
-      requestAnimationFrame(tick);
+    var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};
+    if("undefined"!=typeof Tally) v();
+    else if(d.querySelector('script[src="'+w+'"]')==null){
+      var s=d.createElement("script");
+      s.src=w; s.onload=v; s.onerror=v;
+      d.body.appendChild(s);
     }
-    const counterObs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          animateCounter(e.target);
-          counterObs.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.5 });
-    document.querySelectorAll('.js-counter').forEach(el => counterObs.observe(el));
-
-    // Parallax on hero deco
-    const heroDeco = document.getElementById('heroDeco');
-    const updateHeroParallax = (e) => {
-      if (window.scrollY > window.innerHeight * 0.6) return;
-      const x = (e.clientX / window.innerWidth - 0.5) * 30;
-      const y = (e.clientY / window.innerHeight - 0.5) * 18;
-      heroDeco.style.transform = `translate(${x}px, ${y}px)`;
-    };
-    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-      document.addEventListener('mousemove', updateHeroParallax, { passive: true });
-    }
-
-    // ——— Beehiiv subscription via hidden iframe ———
-    // Each form posts natively to the hidden iframe (#beehiivSink).
-    // This avoids CORS issues entirely — HTML form submission to a target
-    // iframe always works, regardless of cross-origin policies.
-    // We detect successful submission via the iframe's load event.
-
-    const beehiivSink = document.getElementById('beehiivSink');
-    let isFirstIframeLoad = true;
-    let pendingSubmission = null;
-
-    if (beehiivSink) {
-      beehiivSink.addEventListener('load', () => {
-        // Skip the initial load of the empty iframe
-        if (isFirstIframeLoad) {
-          isFirstIframeLoad = false;
-          return;
-        }
-        // A form submission completed
-        if (pendingSubmission) {
-          pendingSubmission.form.style.display = 'none';
-          if (pendingSubmission.meta) pendingSubmission.meta.style.display = 'none';
-          if (pendingSubmission.success) pendingSubmission.success.classList.add('show');
-          pendingSubmission = null;
-        }
-      });
-    }
-
-    function wireForm(formId, metaId, successId) {
-      const form = document.getElementById(formId);
-      const meta = document.getElementById(metaId);
-      const success = document.getElementById(successId);
-      if (!form) return;
-
-      form.addEventListener('submit', (e) => {
-        const input = form.querySelector('input[type=email]');
-        const email = (input.value || '').trim();
-        // Light client-side validation
-        if (!email.includes('@') || !email.includes('.')) {
-          e.preventDefault();
-          input.focus();
-          return;
-        }
-        // Track for the iframe load handler. Form submits natively.
-        pendingSubmission = { form, meta, success };
-      });
-    }
-
-    wireForm('heroForm', 'heroMeta', 'heroSuccess');
-    wireForm('bigForm', 'bigMeta', 'bigSuccess');
   </script>
 </body>
 </html>
